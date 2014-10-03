@@ -61,10 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="FunctionalTests\" />
-    <Folder Include="Specs\Features\CoffeeMaker\" />
-    <Folder Include="Specs\Steps\Cleanup\" />
-    <Folder Include="Specs\Steps\DataSetup\" />
-    <Folder Include="Specs\Steps\Inspection\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Specs\Specs.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
