@@ -5,7 +5,7 @@ Then I start a brew cycle
 Given a Coffee Maker
 And I put a filter in the filter holder
 And I fill the filter with coffee grounds
-And I slide the filter holder into its recepticle
+And I slide the filter holder into its receptacle
 And I pour up to 12 cups of water into the water strainer
 When I start a brew cycle
 Then the water is heated to boiling
