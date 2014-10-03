@@ -13,14 +13,14 @@ namespace CoffeeMaker
         * sensor. This sensor detects the presence of the pot
         * and whether it has coffee in it.
         */
-        Constants.WarmerState GetWarmerPlateStatus();
+        WarmerStatus GetWarmerPlateStatus();
 
         /**
         * This function returns the status of the boiler switch.
         * The boiler switch is a float switch that detects if
         * there is more than 1/2 cup of water in the boiler.
         */
-        Constants.BoilerState GetBoilerStatus();
+        BoilerStatus GetBoilerStatus();
 
         /**
         * This function returns the status of the brew button.
@@ -33,19 +33,19 @@ namespace CoffeeMaker
         * rate, it will still detect when the brew button is
         * pushed.
         */
-        Constants.BrewButtonState GetBrewButtonStatus();
+        BrewButtonStatus GetBrewButtonStatus();
 
         /**
         * This function turns the heating element in the boiler
         * on or off.
         */
-        void SetBoilerState(Constants.BoilerState boilerStatus);
+        void SetBoilerState(BoilerState boilerState);
 
         /**
         * This function turns the heating element in the warmer
         * plate on or off.
         */
-        void SetWarmerState(Constants.WarmerState warmerState);
+        void SetWarmerState(WarmerState warmerState);
 
         /**
         * This function turns the indicator light on or off.
@@ -53,7 +53,7 @@ namespace CoffeeMaker
         * of the brewing cycle. It should be turned off when
         * the user presses the brew button.
         */
-        void SetIndicatorState(Constants.IndicatorState indicatorState);
+        void SetIndicatorState(IndicatorState indicatorState);
 
         /**
         * This function opens and closes the pressure-relief
@@ -63,39 +63,49 @@ namespace CoffeeMaker
         * in the boiler escapes into the environment, and the
         * water in the boiler will not spray out over the filter.
         */
-        void SetReliefValveState(Constants.ReliefValveState reliefValveState);
+        void SetReliefValveState(ReliefValveState reliefValveState);
     }
 
-    public static class Constants
+    public enum BrewButtonStatus
     {
-        public enum BrewButtonState
-        {
-            BREW_BUTTON_PUSHED = 0,
-            BREW_BUTTON_NOT_PUSHED
-        }
+        BREW_BUTTON_PUSHED = 0,
+        BREW_BUTTON_NOT_PUSHED
+    }
 
-        public enum BoilerState
-        {
-            BOILER_ON = 0,
-            BOILER_OFF
-        }
+    public enum BoilerStatus
+    {
+        BOILER_EMPTY = 0,
+        BOILER_NOT_EMPTY
+    }
 
-        public enum WarmerState
-        {
-            WARMER_ON = 0,
-            WARMER_OFF
-        }
+    public enum BoilerState
+    {
+        BOILER_ON = 0,
+        BOILER_OFF
+    }
 
-        public enum IndicatorState
-        {
-            INDICATOR_ON = 0,
-            INDICATOR_OFF
-        }
+    public enum WarmerStatus
+    {
+        WARMER_EMPTY = 0,
+        POT_EMPTY,
+        POT_NOT_EMPTY
+    }
 
-        public enum ReliefValveState
-        {
-            VALVE_OPEN = 0,
-            VALVE_CLOSED
-        }
+    public enum WarmerState
+    {
+        WARMER_ON = 0,
+        WARMER_OFF
+    }
+
+    public enum IndicatorState
+    {
+        INDICATOR_ON = 0,
+        INDICATOR_OFF
+    }
+
+    public enum ReliefValveState
+    {
+        VALVE_OPEN = 0,
+        VALVE_CLOSED
     }
 }
