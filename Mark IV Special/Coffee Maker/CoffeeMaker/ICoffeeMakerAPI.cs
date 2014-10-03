@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace CoffeeMaker
 {
-    public interface ICoffeeMakerAPI
+    public interface ICoffeeMakerAPI : IBoiler, IBrewButton, IIndicatorLight, IReliefValve, IWarmerPlate
     {
-        /**
-        * This function returns the status of the warmer-plate
-        * sensor. This sensor detects the presence of the pot
-        * and whether it has coffee in it.
-        */
-        WarmerStatus GetWarmerPlateStatus();
+    }
 
+    public interface IBoiler
+    {
         /**
         * This function returns the status of the boiler switch.
         * The boiler switch is a float switch that detects if
@@ -22,6 +19,15 @@ namespace CoffeeMaker
         */
         BoilerStatus GetBoilerStatus();
 
+        /**
+        * This function turns the heating element in the boiler
+        * on or off.
+        */
+        void SetBoilerState(BoilerState boilerState);
+    }
+
+    public interface IBrewButton
+    {
         /**
         * This function returns the status of the brew button.
         * The brew button is a momentary switch that remembers
@@ -34,19 +40,10 @@ namespace CoffeeMaker
         * pushed.
         */
         BrewButtonStatus GetBrewButtonStatus();
+    }
 
-        /**
-        * This function turns the heating element in the boiler
-        * on or off.
-        */
-        void SetBoilerState(BoilerState boilerState);
-
-        /**
-        * This function turns the heating element in the warmer
-        * plate on or off.
-        */
-        void SetWarmerState(WarmerState warmerState);
-
+    public interface IIndicatorLight
+    {
         /**
         * This function turns the indicator light on or off.
         * The indicator light should be turned on at the end
@@ -54,16 +51,35 @@ namespace CoffeeMaker
         * the user presses the brew button.
         */
         void SetIndicatorState(IndicatorState indicatorState);
+    }
+
+    public interface IReliefValve
+    {
+        /**
+                * This function opens and closes the pressure-relief
+                * valve. When this valve is closed, steam pressure in
+                * the boiler will force hot water to spray out over
+                * the coffee filter. When the valve is open, the steam
+                * in the boiler escapes into the environment, and the
+                * water in the boiler will not spray out over the filter.
+                */
+        void SetReliefValveState(ReliefValveState reliefValveState);
+    }
+
+    public interface IWarmerPlate
+    {
+        /**
+        * This function returns the status of the warmer-plate
+        * sensor. This sensor detects the presence of the pot
+        * and whether it has coffee in it.
+        */
+        WarmerStatus GetWarmerPlateStatus();
 
         /**
-        * This function opens and closes the pressure-relief
-        * valve. When this valve is closed, steam pressure in
-        * the boiler will force hot water to spray out over
-        * the coffee filter. When the valve is open, the steam
-        * in the boiler escapes into the environment, and the
-        * water in the boiler will not spray out over the filter.
+        * This function turns the heating element in the warmer
+        * plate on or off.
         */
-        void SetReliefValveState(ReliefValveState reliefValveState);
+        void SetWarmerState(WarmerState warmerState);
     }
 
     public enum BrewButtonStatus
