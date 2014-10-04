@@ -53,17 +53,24 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Base\MockHardware.cs" />
+    <Compile Include="FunctionalTests\BrewButtonTests.cs" />
+    <Compile Include="FunctionalTests\WarmerPlateTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FunctionalTests\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Specs\Specs.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CoffeeMaker\CoffeeMaker.csproj">
+      <Project>{f01db25d-7d6b-4ed7-976b-be16df2cf9c8}</Project>
+      <Name>CoffeeMaker</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

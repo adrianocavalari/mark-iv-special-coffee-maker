@@ -14,5 +14,15 @@ namespace CoffeeMaker
         {
             this._hardware = hardware;
         }
+
+        public void On()
+        {
+            this._hardware.SetIndicatorState(IndicatorState.INDICATOR_ON);
+        }
+
+        public void Off()
+        {
+            this._hardware.SetIndicatorState(IndicatorState.INDICATOR_OFF);
+        }
     }
 }

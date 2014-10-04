@@ -6,13 +6,23 @@ using System.Threading.Tasks;
 
 namespace CoffeeMaker
 {
-    public class ReliefValve
+    public class PressureReliefValve
     {
         private IReliefValve _hardware;
 
-        public ReliefValve(IReliefValve hardware)
+        public PressureReliefValve(IReliefValve hardware)
         {
             this._hardware = hardware;
+        }
+
+        public void Open()
+        {
+            this._hardware.SetReliefValveState(ReliefValveState.VALVE_OPEN);
+        }
+
+        public void Close()
+        {
+            this._hardware.SetReliefValveState(ReliefValveState.VALVE_CLOSED);
         }
     }
 }

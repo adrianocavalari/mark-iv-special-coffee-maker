@@ -19,5 +19,10 @@ namespace CoffeeMaker
         {
             this._hardware.SetBoilerState(BoilerState.BOILER_ON);
         }
+
+        public void Stop()
+        {
+            this._hardware.SetBoilerState(BoilerState.BOILER_OFF);
+        }
     }
 }
